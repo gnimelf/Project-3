@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Home() {
+export default function LogIn() {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1>Log In</h1>
       <p>
         <div class="container">
           <div class="row">
@@ -12,7 +12,7 @@ export default function Home() {
             </div>
             <div class="col-sm">
               <p>
-              This is our Home page.
+              This is our LogIn Page.
               </p>
             </div>
             </div>

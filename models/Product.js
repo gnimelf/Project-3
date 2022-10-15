@@ -18,7 +18,7 @@ const productSchema = new Schema({
 
   },
   price: {
-    type: Float,
+    type: Number,
     required: true,
     
   },
@@ -27,7 +27,7 @@ const productSchema = new Schema({
     
   },
   quantity:{
-    type: Int,
+    type: Number,
 
 
   },

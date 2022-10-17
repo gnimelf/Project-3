@@ -1,0 +1,121 @@
+const Post = require("../models/Post");
+
+const lorum = [
+    "lorem",
+    "imsum",
+    "dolor",
+    "sit",
+    "amet",
+    "consectetur",
+    "adipiscing",
+    "elit",
+    "curabitur",
+    "vel",
+    "hendrerit",
+    "libero",
+    "eleifend",
+    "blandit",
+    "nunc",
+    "ornare",
+    "odio",
+    "ut",
+    "orci",
+    "gravida",
+    "imperdiet",
+    "nullam",
+    "purus",
+    "lacinia",
+    "a",
+    "pretium",
+    "quis",
+];
+
+// grab random number from length of "lorum" list 
+const genRandomIndex = (arr) => Math.floor(Math.random() * arr.length);
+
+// Grab a random word from "lorum" list
+const getRandomWord = () => `${lorum[genRandomIndex(lorum)]}`;
+
+// Generage random post and then create post in db and added it userSeed that called the function
+const getRandomPost = (words) => {
+    let message = "";
+    for (let i = 0; i < words; i++) {
+        message += ` ${getRandomWord()}`;
+    }
+    const post = new Post({
+        title: getRandomWord(),
+        description: message
+    });
+
+    Post.create(post);
+
+    return post;
+};
+
+const userSeeds = [
+    {
+        first: "Brian",
+        last: "Kernighan",
+        email: "bkernighan@techfriends.dev",
+        password: "password01",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "Max",
+        last: "Kanat-Alexander",
+        email: "mkanatalexander@techfriends.dev",
+        password: "password02",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "Amiko",
+        last: "Utaki",
+        email: "amiko@techfriends.dev",
+        password: "password03",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "Kent",
+        last: "Beck",
+        email: "kbeck@techfriends.dev",
+        password: "password04",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "Edward V.",
+        last: "Berard",
+        email: "evberard@techfriends.dev",
+        password: "password05",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "Alan",
+        last: "Kay",
+        email: "akay@techfriends.dev",
+        password: "password06",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "C.A.R.",
+        last: "Hoare",
+        email: "choare@techfriends.dev",
+        password: "password07",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "David",
+        last: "Thomas",
+        email: "dthomas@techfriends.dev",
+        password: "password08",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+    {
+        first: "Donald",
+        last: "Knuth",
+        email: "dknuth@techfriends.dev",
+        password: "password09",
+        post: [getRandomPost(Math.floor(Math.random()*10))],
+    },
+];
+
+module.exports = userSeeds;

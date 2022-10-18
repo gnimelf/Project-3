@@ -3,8 +3,6 @@ const db = require("../config/connection");
 const {User, Post} = require("../models");
 const userSeeds = require("./data")
 
-
-
 db.once('open', async () => {
 
     try {

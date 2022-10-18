@@ -6,8 +6,6 @@ import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 
 
-
-
 export default function Container() {
   const [currentPage, setCurrentPage] = useState('Home');
 

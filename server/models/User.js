@@ -1,27 +1,31 @@
 const { Schema, model } = require("mongoose");
-// const reviewSchema = require("./Review");
+const reviewSchema = require("./Review");
 
 const userSchema = new Schema(
     {
+        username: {
+            type: String,
+            required: "You need add a username",
+        },
         first: {
             type: String,
-            required: "You need to a first name",
+            required: "You need to add a first name",
             trim: true,
         },
         last: {
             type: String,
-            required: "You need to a last name",
+            required: "You need to add a last name",
             trim: true,
         },
         email: {
             type: String,
-            required: "You need an email address",
+            required: "You need to add an email address",
             unique: true,
             trim: true,
         },
         password: {
             type: String,
-            required: "You need a password",
+            required: "You need add a password",
             trim: true,
         },
         post: [
@@ -31,28 +35,8 @@ const userSchema = new Schema(
             },
         ],
     },
-    // include virtuals to be included
-    {
-        toJSON: {
-            virtuals: true,
-        },
-        id: false,
-    }
-);
 
-// virtual property
-userSchema
-  .virtual('fullName')
-  // Getter
-  .get(() => {
-    return `${this.first} ${this.last}`;
-  })
-  // Setter to set the first and last name
-  .set(function (v) {
-    const first = v.split(' ')[0];
-    const last = v.split(' ')[1];
-    this.set({ first, last });
-  });
+);
 
 const User = model("user", userSchema);
 

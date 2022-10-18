@@ -17,21 +17,8 @@ const postSchema = new Schema(
             upvotes: Number,
             bookmarks: Number,
           },
-    },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-        id: false,
     }
 );
-
-postSchema
-    .virtual("upvoteCount")
-    // Getter
-    .get(function () {
-        return this.meta.upvotes;
-    });
 
 const Post = model('post', postSchema);
 

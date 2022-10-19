@@ -42,7 +42,7 @@ type User {
     addReview(postId: ID!, username: String!, reviewText: String!, stars: Int!): Post
     removeReview(postId: ID!, reviewId: ID!): Post 
     addUser(username: String!, first: String!, last: String!, password: String!): Auth
-    
+    login(username: String!, password: String!): Auth
   }
 `;
 

@@ -57,6 +57,23 @@ const resolvers = {
       
             return { token, profile };
           },
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({username });
+      
+            if (!user) {
+              throw new AuthenticationError('No profile with this email found!');
+            }
+      
+            const correctPw = await profile.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect password!');
+            }
+      
+            const token = signToken(profile);
+            return { token, user };
+          },
+      
     },
 };
 

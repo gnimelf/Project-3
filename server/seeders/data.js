@@ -59,7 +59,7 @@ const userSeeds = [
         last: "Kernighan",
         email: "bkernighan@techfriends.dev",
         password: "password01",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "mkanatalexander",
@@ -67,7 +67,7 @@ const userSeeds = [
         last: "Kanat-Alexander",
         email: "mkanatalexander@techfriends.dev",
         password: "password02",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "amiko",
@@ -75,7 +75,7 @@ const userSeeds = [
         last: "Utaki",
         email: "amiko@techfriends.dev",
         password: "password03",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "kbeck",
@@ -83,7 +83,7 @@ const userSeeds = [
         last: "Beck",
         email: "kbeck@techfriends.dev",
         password: "password04",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "evberard",
@@ -91,7 +91,7 @@ const userSeeds = [
         last: "Berard",
         email: "evberard@techfriends.dev",
         password: "password05",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "akay",
@@ -99,7 +99,7 @@ const userSeeds = [
         last: "Kay",
         email: "akay@techfriends.dev",
         password: "password06",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "choare",
@@ -107,7 +107,7 @@ const userSeeds = [
         last: "Hoare",
         email: "choare@techfriends.dev",
         password: "password07",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "dthomas",
@@ -115,7 +115,7 @@ const userSeeds = [
         last: "Thomas",
         email: "dthomas@techfriends.dev",
         password: "password08",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
         username: "dknuth",
@@ -123,7 +123,7 @@ const userSeeds = [
         last: "Knuth",
         email: "dknuth@techfriends.dev",
         password: "password09",
-        post: [getRandomPost(Math.floor(Math.random()*10))],
+        posts: [getRandomPost(Math.floor(Math.random()*10))],
     },
 ];
 

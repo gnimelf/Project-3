@@ -27,7 +27,7 @@ const userSchema = new Schema(
             required: "You need add a password",
             trim: true,
         },
-        posts: [
+        post: [
             {
                 type: Schema.Types.ObjectId,
                 ref: "post",

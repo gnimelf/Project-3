@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const { Review } = require("./Review");
 
 const postSchema = new Schema(
     {
@@ -13,25 +12,24 @@ const postSchema = new Schema(
         description: {
             type: String,
         },
-        meta: {
-            upvotes: Number,
-            bookmarks: Number,
-          },
-    },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-        id: false,
+        reviews: [
+            {
+                username: {
+                    type: String,
+                    trim: true
+                },
+                reviewText: {
+                    type: String
+                },
+                stars: {
+                    type: Number,
+                    min: 1,
+                    max: 5,
+                },
+            }
+        ],
     }
 );
-
-postSchema
-    .virtual("upvoteCount")
-    // Getter
-    .get(function () {
-        return this.meta.upvotes;
-    });
 
 const Post = model('post', postSchema);
 

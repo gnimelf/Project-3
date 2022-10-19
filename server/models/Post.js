@@ -1,8 +1,12 @@
 const { Schema, model } = require("mongoose");
-const { Review } = require("./Review");
+const reviewSchema = require("./Review");
 
 const postSchema = new Schema(
     {
+        username: {
+            type: String,
+            required: true
+        },
         title: {
             type: String,
             required: true,
@@ -13,10 +17,7 @@ const postSchema = new Schema(
         description: {
             type: String,
         },
-        meta: {
-            upvotes: Number,
-            bookmarks: Number,
-          },
+        review: [reviewSchema],
     }
 );
 

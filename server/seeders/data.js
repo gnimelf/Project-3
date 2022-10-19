@@ -54,6 +54,7 @@ const getRandomPost = (words) => {
 
 const userSeeds = [
     {
+        username: "bkernighan",
         first: "Brian",
         last: "Kernighan",
         email: "bkernighan@techfriends.dev",
@@ -61,6 +62,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "mkanatalexander",
         first: "Max",
         last: "Kanat-Alexander",
         email: "mkanatalexander@techfriends.dev",
@@ -68,6 +70,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "amiko",
         first: "Amiko",
         last: "Utaki",
         email: "amiko@techfriends.dev",
@@ -75,6 +78,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "kbeck",
         first: "Kent",
         last: "Beck",
         email: "kbeck@techfriends.dev",
@@ -82,6 +86,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "evberard",
         first: "Edward V.",
         last: "Berard",
         email: "evberard@techfriends.dev",
@@ -89,6 +94,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "akay",
         first: "Alan",
         last: "Kay",
         email: "akay@techfriends.dev",
@@ -96,6 +102,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "choare",
         first: "C.A.R.",
         last: "Hoare",
         email: "choare@techfriends.dev",
@@ -103,6 +110,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "dthomas",
         first: "David",
         last: "Thomas",
         email: "dthomas@techfriends.dev",
@@ -110,6 +118,7 @@ const userSeeds = [
         post: [getRandomPost(Math.floor(Math.random()*10))],
     },
     {
+        username: "dknuth",
         first: "Donald",
         last: "Knuth",
         email: "dknuth@techfriends.dev",

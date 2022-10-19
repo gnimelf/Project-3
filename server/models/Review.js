@@ -1,6 +1,4 @@
 const { Schema, model } = require('mongoose');
-const Post = require('./Post')
-
 
 const reviewSchema = new Schema({
     fullname: {
@@ -15,12 +13,6 @@ const reviewSchema = new Schema({
         min: 1,
         max: 5,
     },
-    postId: {
-        type: Schema.Types.ObjectId,
-        ref: 'post',
-        required: true
-    }
-
 });
 
 module.exports = reviewSchema;

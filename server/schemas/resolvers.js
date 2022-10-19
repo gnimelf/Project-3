@@ -1,25 +1,15 @@
-const { Profile } = require('../models');
+const { User, Post } = require('../models');
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
+    users: async () => {
+      return User.find().populate('posts');
     },
-
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+    posts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Post.find(params).sort({ createdAt: -1 });
     },
-  },
-
-  Mutation: {
-    addProfile: async (parent, { name }) => {
-      return Profile.create({ name });
-    },
-
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
-    },
-  },
+  }
 };
 
 module.exports = resolvers;

@@ -1,12 +1,14 @@
+const { AuthenticationError } = require("apollo-server-express");
 const { User, Post } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find().populate("post");
+            return User.find().populate("posts");
         },
         user: async (parent, { username }) => {
-            return User.findOne({ username }).populate("post");
+            return User.findOne({ username }).populate("posts");
         },
         posts: async () => {
             return Post.find({});
@@ -14,11 +16,81 @@ const resolvers = {
         post: async (parent, { postId }) => {
             return Post.findOne({ _id: postId });
         },
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id }).populate(
+                    "thoughts"
+                );
+            }
+            throw new AuthenticationError("You need to be logged in!");
+        }
     },
 
     Mutation: {
+        addUser: async (parent, { username, first, last, email, password}) => {
+            const user = await User.create(
+                {
+                    username,
+                    first,
+                    last,
+                    email,
+                    password
+                }
+            );
+            const token = signToken(user);
+            return {token, user}
+        },
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({ username });
+
+            if (!user) {
+                throw new AuthenticationError(
+                    "No user found with this username address"
+                );
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError("Incorrect credentials");
+            }
+
+            const token = signToken(user);
+
+            return { token, user };
+        },
+
+        addPost: async (parent, { userId, postTitle, imageUrl, postDescription}, context) => {
+            if (context.user) {
+                const post = await Post.create({
+                    title: postTitle,
+                    image: imageUrl,
+                    description: postDescription,
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $addToSet: { posts: post._id}}
+                );
+
+                return post;
+        }
+        throw new AuthenticationError("You need to be logged in!");
+
+        },
+        removePost: async (parent, { postId }, context) => {
+            if (context.user) {
+            const post = await Post.findOneAndDelete(
+                {
+                    _id: postId,
+                }
+            );
+            return post
+            }
+            throw new AuthenticationError("You need to be logged in!")
+        },
         addReview: async (parent, { postId, username, reviewText, stars }) => {
-            // if (context.user) {
+            if (context.user) {
             return Post.findOneAndUpdate(
                 { _id: postId },
                 {
@@ -31,11 +103,11 @@ const resolvers = {
                     runValidators: true,
                 }
             );
-            // }
-            // throw new AuthenticationError('You need to be logged in!');
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
-        removeReview: async (parent, { postId, reviewId }) => {
-            // if (context.user) {
+        removeReview: async (parent, { postId, reviewId }, context) => {
+            if (context.user) {
             return Post.findOneAndUpdate(
                 { _id: postId },
                 {
@@ -47,8 +119,8 @@ const resolvers = {
                 },
                 {new: true}
             );
-            // }
-            // throw new AuthenticationError('You need to be logged in!');
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
     },
 };

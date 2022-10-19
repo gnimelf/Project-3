@@ -36,9 +36,14 @@ type User {
     user(username: String!): User
     posts: [Post]!
     post(postId: ID!): Post
+    me: User
   }
 
   type Mutation {
+    addUser(username: String!, first: String!, last: String!, email: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
+    addPost(userId: ID!, postTitle: String!, imageUrl: String!, postDescription: String!): Post
+    removePost(postId: ID!): Post
     addReview(postId: ID!, username: String!, reviewText: String!, stars: Int!): Post
     removeReview(postId: ID!, reviewId: ID!): Post 
   }

@@ -10,23 +10,37 @@ type User {
     password: String
     posts: [Post]!
   }
+
   type Post {
     _id: ID
     title: String
     image: String
     description: String
-    review: [Review]!
+    reviews: [Review]!
   }
 
   type Review {
     _id: ID
-    fullname: String
-    review_text: String
-    starts: Int
+    username: String
+    reviewText: String
+    stars: Int
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Query {
     users: [User]!
+    user(username: String!): User
+    posts: [Post]!
+    post(postId: ID!): Post
+  }
+
+  type Mutation {
+    addReview(postId: ID!, username: String!, reviewText: String!, stars: Int!): Post
+    removeReview(postId: ID!, reviewId: ID!): Post 
   }
 `;
 

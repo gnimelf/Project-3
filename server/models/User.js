@@ -1,54 +1,59 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+const { Schema, model } = require("mongoose");
+// const reviewSchema = require("./Review");
 
-const userSchema = new Schema({
-
-  firstName:{
-    type: String,
-    required: true,
-    unique: false,
-    trim:true,
-
-  },
-  lastName:{
-    type: String,
-    required: true,
-    unique: false,
-    trim:true,
-
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5,
-  },
-  orders: [
+const userSchema = new Schema(
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Order',
+        first: {
+            type: String,
+            required: "You need to a first name",
+            trim: true,
+        },
+        last: {
+            type: String,
+            required: "You need to a last name",
+            trim: true,
+        },
+        email: {
+            type: String,
+            required: "You need an email address",
+            unique: true,
+            trim: true,
+        },
+        password: {
+            type: String,
+            required: "You need a password",
+            trim: true,
+        },
+        post: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "post",
+            },
+        ],
     },
-  ],
-});
+    // include virtuals to be included
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        id: false,
+    }
+);
 
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
+// virtual property
+userSchema
+  .virtual('fullName')
+  // Getter
+  .get(() => {
+    return `${this.first} ${this.last}`;
+  })
+  // Setter to set the first and last name
+  .set(function (v) {
+    const first = v.split(' ')[0];
+    const last = v.split(' ')[1];
+    this.set({ first, last });
+  });
 
-  next();
-});
-
-userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-};
-
-const User = model('User', userSchema);
+const User = model("user", userSchema);
 
 module.exports = User;

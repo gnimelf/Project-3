@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+
 import NavTab from './NavTab';
-import Home from './pages/Home';
-import Review from './pages/Review';
-import SignUp from './pages/SignUp';
-import LogIn from './pages/LogIn';
+import Home from '../pages/Home';
+import Review from '../pages/Review';
+import SignUp from '../pages/SignUp';
+import LogIn from '../pages/LogIn';
 
 
 export default function Container() {

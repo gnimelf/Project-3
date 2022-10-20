@@ -76,3 +76,16 @@
   margin: 30px 0;
   font-weight: bold;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: rgb(248, 234, 103);
+}
+.off {
+  color: rgb(14, 13, 13);
+}

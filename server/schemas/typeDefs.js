@@ -46,6 +46,7 @@ type User {
     removePost(postId: ID!): Post
     addReview(postId: ID!, username: String!, reviewText: String!, stars: Int!): Post
     removeReview(postId: ID!, reviewId: ID!): Post 
+    updatePost(postId: ID!, title: String, image: String, description: String): Post
   }
 `;
 

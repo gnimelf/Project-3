@@ -126,7 +126,7 @@ const resolvers = {
             if (context.user) {
                 return Post.findOneAndUpdate(
                     { _id: postId },
-                    { title, image, description, createdAt:new Date().toISOString() },
+                    { title, image, description },
                     {new: true}
                 );
             }

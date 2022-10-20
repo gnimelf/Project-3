@@ -40,13 +40,10 @@ const postSchema = new Schema(
                     min: 1,
                     max: 5,
                 },
-                createdAt: {
-                    type: Date,
-                    default: Date.now
-                }
             }
         ],
-    }
+    },
+    {timestamps: true}
 );
 
 const Post = model('post', postSchema);

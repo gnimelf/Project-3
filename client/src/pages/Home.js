@@ -8,12 +8,11 @@ import React from "react";
 // } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
 
 import "../../src/App.css"
-// import StarRating from "../components/StarRating"
+ //import StarRating from "../components/StarRating"
 
 export default function Home() {
   return (
     <div>
-      <h1></h1>
       <p>
         <div className="container">
           <div className="row">
@@ -47,9 +46,6 @@ export default function Home() {
                       <div clas="rating text-center">Rated</div>
                       {/* <div> <StarRating /> </div> */}
 
-                      <a href="#" className="btn btn-primary background">
-                        Go somewhere
-                      </a>
                     </div>
                   </div>
                 </div>

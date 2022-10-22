@@ -30,7 +30,6 @@ type User {
     token: ID!
     user: User
   }
-
   type Query {
     users: [User]!
     user(username: String!): User
@@ -38,7 +37,6 @@ type User {
     post(postId: ID!): Post
     me: User
   }
-
   type Mutation {
     addUser(username: String!, first: String!, last: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth

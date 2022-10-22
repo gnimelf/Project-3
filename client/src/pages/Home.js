@@ -1,12 +1,4 @@
 import React from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   solid,
-//   regular,
-//   brands,
-//   icon,
-// } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
-
 import "../../src/App.css"
  //import StarRating from "../components/StarRating"
 
@@ -35,13 +27,6 @@ export default function Home() {
 
                       <h2 className="text-center"> Star Rating</h2>
                       <ul className="text-center">
-                        {/* <li className="star">
-                          <FontAwesomeIcon icon={solid("star")} />
-                          <FontAwesomeIcon icon={solid("star")} />
-                          <FontAwesomeIcon icon={solid("star")} />
-                          <FontAwesomeIcon icon={solid("star")} />
-                          <FontAwesomeIcon icon={solid("star")} />
-                        </li> */}
                       </ul>
                       <div clas="rating text-center">Rated</div>
                       {/* <div> <StarRating /> </div> */}

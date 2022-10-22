@@ -1,8 +1,6 @@
 import React from "react";
  //import Container from "../Container"
 
-
-
 export default function Header() {
   return (
     <header className="bg-info text-dark mb-4 py-3 display-flex align-center">

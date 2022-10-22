@@ -1,14 +1,14 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  solid,
-  regular,
-  brands,
-  icon,
-} from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   solid,
+//   regular,
+//   brands,
+//   icon,
+// } from "@fortawesome/fontawesome-svg-core/import.macro"; // <-- import styles to be used
 
 import "../../src/App.css"
-import StarRating from "../components/StarRating"
+// import StarRating from "../components/StarRating"
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
                 <div className="d-flex p-2">
                   <div className="card" style={{ width: "18rem" }}>
                     <img
-                      src="/client/src/assets/images/TikTok.PNG"
+                      src="/assets/images/TikTok.PNG"
                       className="card-img-top"
                       alt="..."
                     />
@@ -36,16 +36,16 @@ export default function Home() {
 
                       <h2 className="text-center"> Star Rating</h2>
                       <ul className="text-center">
-                        <li className="star">
+                        {/* <li className="star">
                           <FontAwesomeIcon icon={solid("star")} />
                           <FontAwesomeIcon icon={solid("star")} />
                           <FontAwesomeIcon icon={solid("star")} />
                           <FontAwesomeIcon icon={solid("star")} />
                           <FontAwesomeIcon icon={solid("star")} />
-                        </li>
+                        </li> */}
                       </ul>
                       <div clas="rating text-center">Rated</div>
-                      <div> <StarRating /> </div>
+                      {/* <div> <StarRating /> </div> */}
 
                       <a href="#" className="btn btn-primary background">
                         Go somewhere

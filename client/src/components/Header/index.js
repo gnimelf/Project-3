@@ -1,6 +1,5 @@
 import React from "react";
-import img from "../../assets/images/TikTok.PNG";
-import Container from "../Container"
+// import Container from "../Container"
 
 
 
@@ -12,7 +11,7 @@ export default function Header() {
           <div className="row align-items-start">
             <div className="col-2">
               <div className="card" style={{ width: "12rem" }}>
-                <img src={img} />
+                <img src={"/assets/images/TikTok.PNG"} />
               </div>
             </div>
             <div className="col-10">
@@ -29,7 +28,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <Container />
+      {/* <Container /> */}
     </header>
   );
 }

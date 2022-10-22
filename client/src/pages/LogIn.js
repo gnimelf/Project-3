@@ -1,99 +1,95 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+ import { LOGIN_USER } from "../utils/Mutations"
+ import Auth from '../utils/Auth';
 
-// import { LOGIN_USER } from "../";
-// import Auth from '';
 
+const LogIn = (props) => {
+  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-const LogIn = () => {
-  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-
-  const handleInputChange = (event) => {
+  // update state based on form input changes
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
 
-  //   // check if form has everything (as per react-bootstrap docs)
-  //   const form = event.currentTarget;
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   }
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
 
-    // try {
-    //   const response = await loginUser(userFormData);
-
-    //   if (!response.ok) {
-    //     throw new Error("something went wrong!");
-    //   }
-
-    //   const { token, user } = await response.json();
-    //   console.log(user);
-    //   Auth.login(token);
-    // } catch (err) {
-    //   console.error(err);
-    //   setShowAlert(true);
-    // }
-
-    // setUserFormData({
-    //   email: "",
-    //   password: "",
-    // });
+    // clear form values
+    setFormState({
+      username: '',
+      password: '',
+    });
+  };
   
   return (
-    <>
-      <Form noValidate validated={validated} >
-        <Alert
-          dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
-          variant="danger"
-        >
-          Something went wrong with your login credentials!
-        </Alert>
-        <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Your email"
-            name="email"
-            onChange={handleInputChange}
-            value={userFormData.email}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Email is required!
-          </Form.Control.Feedback>
-        </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Your password"
-            name="password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Button
-          disabled={!(userFormData.email && userFormData.password)}
-          type="submit"
-          variant="success"
-        >
-          Submit
-        </Button>
-      </Form>
-    </>
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/Review">To the Review Page.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="User Name"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 };
 

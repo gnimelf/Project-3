@@ -65,7 +65,6 @@ query Posts {
       }
     }
   }
-
 `;
 
 export const QUERY_SINGLE_POST = gql`

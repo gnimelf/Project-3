@@ -7,7 +7,11 @@ import Auth from '../utils/Auth';
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '', first: '', last: '', email: '', password: ''
+    username: '',
+    first: '', 
+    last: '', 
+    email: '', 
+    password: ''
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 

@@ -61,7 +61,7 @@ const resolvers = {
 
         addPost: async (
             parent,
-            { userId, username, postTitle, imageUrl, postDescription },
+            { username, postTitle, imageUrl, linkUrl, postDescription },
             context
         ) => {
             if (context.user) {
@@ -69,11 +69,12 @@ const resolvers = {
                     username: username,
                     title: postTitle,
                     image: imageUrl,
+                    url: linkUrl,
                     description: postDescription,
                 });
 
                 await User.findOneAndUpdate(
-                    { _id: userId },
+                    { _id: context.user._id },
                     { $addToSet: { posts: post._id } }
                 );
 

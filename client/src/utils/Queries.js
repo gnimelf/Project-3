@@ -57,6 +57,7 @@ query Posts {
       title
       image
       description
+      url
       reviews {
         _id
         username

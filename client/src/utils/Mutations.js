@@ -28,14 +28,22 @@ mutation AddUser($username: String!, $first: String!, $last: String!, $email: St
 }`;
 
   export const ADD_POST = gql`
-  mutation AddPost($userId: ID!, $postTitle: String!, $imageUrl: String!, $postDescription: String!) {
-    addPost(userId: $userId, postTitle: $postTitle, imageUrl: $imageUrl, postDescription: $postDescription) {
-      title
-      image
-      description
+mutation AddPost($username: String!, $postTitle: String!, $imageUrl: String!, $postDescription: String!) {
+  addPost(username: $username, postTitle: $postTitle, imageUrl: $imageUrl, postDescription: $postDescription) {
+    username
+    title
+    image
+    description
+    url
+    reviews {
+      _id
+      username
+      reviewText
+      stars
     }
   }
-  `;
+}
+`;
 
   export const REMOVE_POST = gql`
   mutation AddPost($postId: ID!) {

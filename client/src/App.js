@@ -12,6 +12,7 @@ import LogIn from "./pages/LogIn";
 import Review from "./pages/Review";
 import SignUp from "./pages/SignUp";
 import NavTab from "./components/NavTab";
+import Footer from "./components/Footer/index";
 // import StarRating from "./components/StarRating";
 
 import "./App.css";
@@ -44,7 +45,6 @@ function App() {
     <ApolloProvider client={client}>
       <div className="flex-column justify-flex-start min-100-vh">
         <Header />
-        Hello
         <NavTab />
           <Router>
             <Routes>
@@ -53,9 +53,11 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/review" element={<Review />} />
             </Routes>
+            <Footer />
          </Router> 
+      
       </div>
-
+       
     </ApolloProvider>
   );
 }

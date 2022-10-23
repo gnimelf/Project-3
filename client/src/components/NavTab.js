@@ -13,7 +13,7 @@ function NavTab({ currentPage, handlePageChange }) {
           // If it is, we set the current page to 'nav-link-active', otherwise we set it to 'nav-link'
           className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
         >
-          <button>Home</button>
+          <button className="btn btn-primary border border-5" type="submit">Home</button>
         </a>
       </li>
       <li className="nav-item">
@@ -22,7 +22,7 @@ function NavTab({ currentPage, handlePageChange }) {
           // Check to see if the currentPage is `About`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
           className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
         >
-          Review
+          <button class="btn btn-primary border border-5" type="submit">Review</button>
         </a>
       </li>
       <li className="SignUp">
@@ -31,7 +31,7 @@ function NavTab({ currentPage, handlePageChange }) {
           // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
           className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
         >
-          SignUp
+          <button class="btn btn-primary border border-5" type="submit">SignUp</button>
         </a>
       </li>
       <li className="LogIn">
@@ -40,7 +40,7 @@ function NavTab({ currentPage, handlePageChange }) {
           // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
           className={({isActive}) => isActive? "nav-link active" : "nav-link"}
         >
-          LogIn
+          <button class="btn btn-primary border border-5" type="submit">LogIn</button>
         </a>
       </li>
     </ul>

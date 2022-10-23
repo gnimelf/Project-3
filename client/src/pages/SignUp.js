@@ -9,6 +9,7 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     username: '', first: '', last: '', email: '', password: ''
   });
+  
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
@@ -44,7 +45,7 @@ const Signup = () => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/review">to the review page.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>

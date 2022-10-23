@@ -1,6 +1,6 @@
 import React from "react";
 import "../../src/App.css"
- //import StarRating from "../components/StarRating"
+ import StarRating from "../components/StarRating"
 
 export default function Home() {
   return (
@@ -19,18 +19,14 @@ export default function Home() {
                       alt="..."
                     />
                     <div className="card-body">
-                      <h5 className="card-title">Card title</h5>
+                      <h5 className="card-title">Product Name:</h5>
                       <p className="card-text">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
+                        Product Review:
                       </p>
-
-                      <h2 className="text-center"> Star Rating</h2>
                       <ul className="text-center">
                       </ul>
                       <div clas="rating text-center">Rated</div>
-                      {/* <div> <StarRating /> </div> */}
-
+                      <div> <StarRating /> </div>
                     </div>
                   </div>
                 </div>

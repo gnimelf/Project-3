@@ -25,8 +25,8 @@ query Users {
   }
   `;
 
-export const QUERY_SINGLE_USER = gql`
-query Users($username: String!) {
+export const QUERY_USER = gql`
+query User($username: String!) {
     user(username: $username) {
       _id
       username
@@ -68,7 +68,7 @@ query Posts {
 
 `;
 
-export const QUERY_SINGLE_POST = gql`
+export const QUERY_POST = gql`
 query Post($postId: ID!) {
     post(postId: $postId) {
       _id

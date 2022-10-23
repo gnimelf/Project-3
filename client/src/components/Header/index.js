@@ -1,5 +1,4 @@
 import React from "react";
- //import Container from "../Container"
 
 export default function Header() {
   return (
@@ -13,7 +12,7 @@ export default function Header() {
               </div>
             </div>
             <div className="col-10">
-              <h1 className="m-0" style={{ fontSize: "3rem" }}>
+              <h1 className="m-0" style={{ fontSize: "2rem" }}>
                 Tik Tok Product Reviews
               </h1>
               <p

@@ -61,11 +61,12 @@ const resolvers = {
 
         addPost: async (
             parent,
-            { userId, postTitle, imageUrl, postDescription },
+            { userId, username, postTitle, imageUrl, postDescription },
             context
         ) => {
             if (context.user) {
                 const post = await Post.create({
+                    username: username,
                     title: postTitle,
                     image: imageUrl,
                     description: postDescription,

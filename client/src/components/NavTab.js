@@ -11,36 +11,32 @@ function NavTab({ currentPage, handlePageChange }) {
           //</li>onClick={() => handlePageChange("Home")}
           // This is a conditional (ternary) operator that checks to see if the current page is "Home"
           // If it is, we set the current page to 'nav-link-active', otherwise we set it to 'nav-link'
-          className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
         >
           <button className="btn btn-primary border border-5" type="submit">Home</button>
         </a>
       </li>
       <li className="nav-item">
-        <a href = "/review"
+        <a href = "/me"
           // onClick={() => handlePageChange("Review")}
           // Check to see if the currentPage is `About`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
         >
-          <button class="btn btn-primary border border-5" type="submit">Review</button>
+          <button className="btn btn-primary border border-5" type="submit">Posts</button>
         </a>
       </li>
       <li className="SignUp">
         <a href = '/signup'
           // onClick={() => handlePageChange("SignUp")}
           // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
         >
-          <button class="btn btn-primary border border-5" type="submit">SignUp</button>
+          <button className="btn btn-primary border border-5" type="submit">SignUp</button>
         </a>
       </li>
       <li className="LogIn">
         <a href = '/login'
           // onClick={() => handlePageChange("LogIn")}
           // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={({isActive}) => isActive? "nav-link active" : "nav-link"}
         >
-          <button class="btn btn-primary border border-5" type="submit">LogIn</button>
+          <button className="btn btn-primary border border-5" type="submit">LogIn</button>
         </a>
       </li>
     </ul>

@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/client';
 import ReviewList from '../components/ReviewList';
 import ReviewForm from '../components/ReviewForm';
 
-import { QUERY_POST } from '../utils/queries';
+import { QUERY_POST } from '../utils/Queries';
 
 const SinglePost = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
@@ -43,10 +43,10 @@ const SinglePost = () => {
       </div>
 
       <div className="my-5">
-        <CommentList comments={thought.reviews} />
+        <ReviewList reviews={post.reviews} />
       </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <CommentForm thoughtId={thought._id} />
+        <ReviewForm postId={post._id} />
       </div>
     </div>
   );

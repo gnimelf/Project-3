@@ -27,27 +27,26 @@ query Users {
 
 export const QUERY_USER = gql`
 query User($username: String!) {
-    user(username: $username) {
+  user(username: $username) {
+    _id
+    username
+    first
+    last
+    email
+    posts {
       _id
-      username
-      first
-      last
-      email
-      password
-      posts {
+      title
+      image
+      description
+      reviews {
         _id
-        title
-        image
-        description
-        reviews {
-          _id
-          username
-          reviewText
-          stars
-        }
+        username
+        reviewText
+        stars
       }
     }
   }
+}
 `;
 
 export const QUERY_POSTS = gql`
@@ -65,7 +64,6 @@ query Posts {
       }
     }
   }
-
 `;
 
 export const QUERY_POST = gql`

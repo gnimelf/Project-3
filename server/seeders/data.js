@@ -39,7 +39,7 @@ const getRandomWord = () => `${lorum[genRandomIndex(lorum)]}`;
 // Generage random post and then create post in db and added it userSeed that called the function
 const getRandomPost = (words) => {
     let message = "";
-    for (let i = 0; i < words; i++) {
+    for (let i = 1; i < words; i++) {
         message += ` ${getRandomWord()}`;
     }
     const post = new Post({

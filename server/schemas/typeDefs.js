@@ -10,6 +10,7 @@ type User {
     password: String
     posts: [Post]!
   }
+
   type Post {
     _id: ID
     title: String
@@ -17,12 +18,14 @@ type User {
     description: String
     reviews: [Review]!
   }
+
   type Review {
     _id: ID
     username: String
     reviewText: String
     stars: Int
   }
+
   type Auth {
     token: ID!
     user: User

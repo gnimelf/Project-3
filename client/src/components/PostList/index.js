@@ -9,7 +9,7 @@ const PostList = ({ posts }) => {
   return (
     <div>
       {posts.map((post) => (
-        <p>
+        <div key={post._id} >
           <div className="container">
             <div className="row">
               <div className="col-sm">
@@ -23,12 +23,11 @@ const PostList = ({ posts }) => {
                         alt="..."
                       />
                       <div className="card-body">
-                        <h5 className="card-title">{post.title}</h5>
-                        <p className="card-text">{post.username}</p>
-                        <p className="card-text">{post.description}</p>
-                        <h2 className="text-center">{post.stars}</h2>
-                        <Link
-                          className="btn btn-primary btn-block btn-squared"
+                        <h5 >{post.title}</h5>
+                        <p >{post.username}</p>
+                        <p >{post.description}</p>
+                        <a href={post.url}>Link</a>
+                        <Link className="btn btn-primary btn-block btn-squared"
                           to={`/post/${post._id}`}
                         >
                           Join the discussion on this thought.
@@ -41,7 +40,7 @@ const PostList = ({ posts }) => {
               </div>
             </div>
           </div>
-        </p>
+        </div>
       ))}
     </div>
   );

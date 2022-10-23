@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CardList = ({ posts }) => {
+const PostList = ({ posts }) => {
   if (!posts.length) {
     return <h3>No posts Yet</h3>;
   }
@@ -45,4 +45,4 @@ const CardList = ({ posts }) => {
   );
 };
 
-export default CardList;
+export default PostList;

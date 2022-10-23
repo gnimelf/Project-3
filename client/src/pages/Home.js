@@ -1,6 +1,6 @@
 import React from "react";
 import "../../src/App.css";
-import CardList from "../components/CardList/index";
+import PostList from "../components/PostList";
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/Queries';
 //import StarRating from "../components/StarRating"
@@ -14,7 +14,7 @@ export default function Home() {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <CardList posts={posts}/>
+        <PostList posts={posts}/>
       )}
     </div>
   );

@@ -26,6 +26,10 @@ const postSchema = new Schema(
             // required: true,
             trim: true
         },
+        url: {
+            type: String,
+            trim: true
+        },
         createdAt: {
             type: Date,
             default: Date.now,
@@ -45,6 +49,11 @@ const postSchema = new Schema(
                     min: 1,
                     max: 5,
                 },
+                createdAt: {
+                    type: Date,
+                    default: Date.now,
+                    get: (timestamp) => dateFormat(timestamp),
+                  },
             }
         ],
     },

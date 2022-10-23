@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+//import StarRating from "../components/StarRating"
 
 const PostList = ({ posts }) => {
   if (!posts.length) {
@@ -23,6 +24,7 @@ const PostList = ({ posts }) => {
                       />
                       <div className="card-body">
                         <h5 className="card-title">{post.title}</h5>
+                        <p className="card-text">{post.username}</p>
                         <p className="card-text">{post.description}</p>
                         <h2 className="text-center">{post.stars}</h2>
                         <Link

@@ -3,7 +3,7 @@ import "../../src/App.css";
 import PostList from "../components/PostList";
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/Queries';
-//import StarRating from "../components/StarRating"
+
 
 export default function Home() {
 

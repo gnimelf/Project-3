@@ -51,7 +51,7 @@ const LogIn = (props) => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <a href = "/Review">To the Review Page.</a>
+                <a href = "/review">To the Review Page.</a>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>

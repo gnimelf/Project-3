@@ -53,6 +53,7 @@ export const QUERY_POSTS = gql`
 query Posts {
     posts {
       _id
+      username
       title
       image
       description
@@ -70,6 +71,7 @@ export const QUERY_POST = gql`
 query Post($postId: ID!) {
     post(postId: $postId) {
       _id
+      username
       title
       image
       description
@@ -84,7 +86,7 @@ query Post($postId: ID!) {
 `;
 
 export const GET_ME = gql`
-query Post {
+query Me {
     me {
       _id
       username

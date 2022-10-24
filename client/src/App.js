@@ -13,6 +13,7 @@ import Review from "./pages/Review";
 import SignUp from "./pages/SignUp";
 import NavTab from "./components/NavTab";
 import Footer from "./components/Footer/index";
+import SinglePost from "./pages/SinglePost";
 // import StarRating from "./components/StarRating";
 
 import "./App.css";
@@ -52,6 +53,7 @@ function App() {
               <Route path="/login" element={<LogIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/review" element={<Review />} />
+              <Route path="/post/:postId" element={<SinglePost />} />
             </Routes>
             <Footer />
          </Router> 

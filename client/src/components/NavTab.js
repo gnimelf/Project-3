@@ -41,7 +41,7 @@ function NavTab({ currentPage, handlePageChange }) {
         <a href = '/signup'
           className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
         >
-          <button class="btn btn-primary border border-5" type="submit">SignUp</button>
+          <button className="btn btn-primary border border-5" type="submit">SignUp</button>
         </a>
       </li>
       {/* {Auth.loggedIn() ? ( */}

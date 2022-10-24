@@ -14,6 +14,7 @@ import SignUp from "./pages/SignUp";
 import NavTab from "./components/NavTab";
 import Footer from "./components/Footer/index";
 import SinglePost from "./pages/SinglePost";
+import PostForm from "./components/PostForm"
 // import StarRating from "./components/StarRating";
 
 import "./App.css";
@@ -54,6 +55,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/review" element={<Review />} />
               <Route path="/post/:postId" element={<SinglePost />} />
+              <Route path="/me" element={<PostForm />} />
             </Routes>
             <Footer />
          </Router> 

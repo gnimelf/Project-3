@@ -28,19 +28,11 @@ mutation AddUser($username: String!, $first: String!, $last: String!, $email: St
 }`;
 
   export const ADD_POST = gql`
-mutation AddPost($username: String!, $postTitle: String!, $imageUrl: String!, $postDescription: String!) {
-  addPost(username: $username, postTitle: $postTitle, imageUrl: $imageUrl, postDescription: $postDescription) {
+mutation AddPost($username: String!, $postTitle: String!) {
+  addPost(username: $username, postTitle: $postTitle) {
     username
     title
     image
-    description
-    url
-    reviews {
-      _id
-      username
-      reviewText
-      stars
-    }
   }
 }
 `;

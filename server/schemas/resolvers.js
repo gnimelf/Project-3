@@ -64,9 +64,9 @@ const resolvers = {
         const post = await Post.create({
           username: username,
           title: postTitle,
-          image: imageUrl,
-          url: linkUrl,
-          description: postDescription,
+          // image: imageUrl,
+          // url: linkUrl,
+          // description: postDescription,
         });
 
         await User.findOneAndUpdate(

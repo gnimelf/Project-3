@@ -88,27 +88,22 @@ query Post($postId: ID!) {
 
 export const GET_ME = gql`
 query Me {
-    me {
+  me {
+    username
+    first
+    last
+    email
+    password
+    posts {
       _id
       username
-      first
-      last
-      email
-      password
-      posts {
-        _id
-        title
-        image
-        description
-        reviews {
-          _id
-          username
-          reviewText
-          stars
-        }
-      }
+      title
+      image
+      description
+      url
     }
   }
+}
 `;
 
 

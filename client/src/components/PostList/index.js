@@ -19,7 +19,7 @@ const PostList = ({ posts }) => {
                   <div className="d-flex p-2">
                     <div className="card" style={{ width: "18rem" }}>
                       <img
-                        src="/assets/images/TikTok.PNG"
+                        src={"/assets/images/TikTok.PNG"}
                         className="card-img-top"
                         alt="..."
                       />

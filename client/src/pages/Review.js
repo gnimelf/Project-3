@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, GET_ME } from '../utils/Queries';
 
 import Auth from '../utils/Auth';
+import ReviewForm from '../components/ReviewForm';
 
 const Review = () => {
   const { username: userParam } = useParams();
@@ -71,9 +72,9 @@ const Review = () => {
     <div>
       <h1>Review Page</h1>
       <div>
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
-        </h2>
+        </h2> 
         {/* <div className="card" style={{ width: "18rem" }}>
           <img
             src="/assets/images/TikTok.PNG"
@@ -102,6 +103,8 @@ const Review = () => {
             </form>
           </div>
         </div>  */}
+
+        <ReviewForm />
       </div>
     </div>
   );

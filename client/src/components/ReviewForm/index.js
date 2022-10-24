@@ -46,6 +46,7 @@ const ReviewForm = () => {
       });
 
       setreviewText('');
+      console.log(reviewText);
     } catch (err) {
       console.error(err);
     }
